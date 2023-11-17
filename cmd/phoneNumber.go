@@ -45,7 +45,7 @@ func getPhoneNumber(args []string) error {
 	}
 	for _, user := range users {
 		if strings.TrimSpace(user.Uid) == gitlabUser {
-			fmt.Printf("successfully! %s's telephoneNumber: %s", gitlabUser, user.TelephoneNumber)
+			fmt.Printf("successfully! %s's telephoneNumber: %s\n", gitlabUser, user.TelephoneNumber)
 			return nil
 		}
 	}
@@ -54,7 +54,7 @@ func getPhoneNumber(args []string) error {
 
 func updatePhoneNumber(args []string) error {
 	if len(newPhoneNumber) == 0 {
-		return fmt.Errorf("please input the telephone number of %s, using flag: -M\n", gitlabUser)
+		return fmt.Errorf("please input the telephone number of %s, using flag: -M", gitlabUser)
 	}
 	err := common.UpdateAttributeValue("telephoneNumber", gitlabUser, newPhoneNumber)
 	if err != nil {

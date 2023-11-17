@@ -44,7 +44,7 @@ func getdingUid(args []string) error {
 	}
 	for _, user := range users {
 		if strings.TrimSpace(user.Uid) == gitlabUser {
-			fmt.Printf("successfully! %s's dingUid: %s", gitlabUser, user.DingUid)
+			fmt.Printf("successfully! %s's dingUid: %s\n", gitlabUser, user.DingUid)
 			return nil
 		}
 	}
@@ -53,7 +53,7 @@ func getdingUid(args []string) error {
 
 func updatedingUid(args []string) error {
 	if len(dingUserid) == 0 {
-		return fmt.Errorf("please input the dingding userid of %s, using flag: --dinguid\n", gitlabUser)
+		return fmt.Errorf("please input the dingding userid of %s, using flag: --dinguid", gitlabUser)
 	}
 	err := common.UpdateAttributeValue("dingUid", gitlabUser, dingUserid)
 	if err != nil {
